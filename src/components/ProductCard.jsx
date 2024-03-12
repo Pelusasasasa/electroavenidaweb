@@ -4,7 +4,7 @@ export const ProductCard = ({_doc}) => {
     const {_id,descripcion,marca,stock,precio_venta} = _doc;
   return (
     <div className='cursor-pointer'>
-        <div className='relative w-full h-72 '>
+        <div className='relative w-full h-64 '>
             <img className='absolute object-cover inset-0 w-full h-full' src={`http://192.168.0.101:4000/api/productos/${_id}/image`} alt={_id} />
             <span className='absolute bottom-2 right-2 bg-gray-400 rounded-lg p-1 text-sm'>{marca}</span>
         </div>
@@ -14,7 +14,7 @@ export const ProductCard = ({_doc}) => {
         </div>
         <div className='flex justify-between'>
             <p>Stock: {stock}</p>
-            <p>${precio_venta.toFixed(2)}</p>
+            <p>${typeof precio_venta === "number" ? precio_venta.toFixed(2) : '0.00'}</p>
         </div>
 
     </div>
