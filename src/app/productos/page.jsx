@@ -1,8 +1,10 @@
-import { conectDB } from "@/utils/mongoose"
-import Productos from "@/models/Product"
-import Rubro from "@/models/Category"
+import {useServer} from 'next/server';
+import { conectDB } from "@/utils/mongoose";
+import Productos from "@/models/Product";
+import Rubro from "@/models/Category";
 import { ProductCard } from "@/components/ProductCard";
 import { Category } from "@/components/Category";
+import { InputBuscador } from "@/components/InputBuscador";
 
 
 async function loadProductos() {
@@ -15,14 +17,12 @@ async function loadCategorias() {
     await conectDB();
     const categorias = await Rubro.find();
     return categorias;
-    
 }
 
 export default async function page(){
 
     const productos = await loadProductos();
     const categorias = await loadCategorias();
-    console.log(categorias)
 
   return (
     <>
@@ -31,7 +31,7 @@ export default async function page(){
                 <img src="/electro.jpg" alt="" className="h-12" />
             </figure>
             
-            <input type="text" className="align-middle w-96 border rounded-lg bg-slate-300 border-black text-black pl-2" placeholder="Que estas Buscando?" />
+            <InputBuscador />
             
             <nav className="flex justify-around gap-5">
                 <p className="text-2xl cursor-pointer hover:text-yellow-200 self-center">Productos</p>
@@ -39,14 +39,14 @@ export default async function page(){
                 <p className="text-2xl cursor-pointer hover:text-yellow-200 self-center">Contacto</p>
             </nav>
         </header>
-        <section className="container flex mx-auto">
-            <aside>
-                <h4>Categorias</h4>
-                <ul className="list-none gap-5 flex flex-col justify-around">
+        <section className=" flex mr-5 ml-5">
+            <aside className="w-fit">
+                <h4 className="font-bold text-2xl ">Categorias</h4>
+                <ul className="list-none gap-5 flex flex-col mt-5 justify-around">
                     {
-                    categorias.map( category => {
-                        return <Category key={category.codigo} {...category}/>
-                    })
+                    categorias.map( category => (
+                        <Category key={category.codigo} datos={JSON.stringify(category)}/>
+                    ))
                     }
                 </ul>
             </aside>
