@@ -1,0 +1,12 @@
+#productCard{
+    height: 458px;
+}
+
+#productImage,img{
+    height: 230px;
+}
+
+#productCard h4,#productCard p{
+    color: #cec407;
+    -webkit-text-stroke: .7px #B4AE34;
+}
