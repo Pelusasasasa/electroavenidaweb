@@ -19,6 +19,20 @@ const Producto = new Schema({
         set: ( valor ) => valor.toUpperCase(),
         trim:true
     },
+    stock: {
+        type: Number,
+        required: true,
+    },
+    precio_venta: {
+        type:Number,
+        required:true
+    },
+    marca: {
+        type:String,
+        default:"",
+        trim:true,
+        set: ( valor ) => valor.toUpperCase() 
+    },
 },{
     timestamps: true
 });

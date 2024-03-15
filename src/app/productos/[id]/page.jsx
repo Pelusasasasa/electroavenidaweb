@@ -11,7 +11,8 @@ async function getProduct(id){
 export default async function page({params}){
     // const router = useRouter();
     const id = params.id;
-    const {_id,descripcion,marca,cod_fabrica,stock} = await getProduct(id);
+    console.log(await getProduct(id));
+    const {_id,descripcion,marca,cod_fabrica,stock,precio_venta} = await getProduct(id);
 
   return (
     <section className="flex border-l-2 border-gray-400 pl-4">
@@ -35,6 +36,26 @@ export default async function page({params}){
                 <img className="w-32" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
             </div>
         </div>
+
+        <main>
+
+            <div id="title">
+                <h3>{descripcion}</h3>
+                <div>
+                    <p>{marca}</p>
+                    <p>{_id}</p>
+                    <p>{cod_fabrica}</p>
+                </div>
+            </div>
+
+            <div id="datos"></div>
+
+            <div id="precio">
+                <p> Precio: ${precio_venta.toFixed(2)}</p>
+                <p>Stock: {stock.toFixed(2)}</p>
+            </div>
+
+        </main>
     </section>
   )
 }

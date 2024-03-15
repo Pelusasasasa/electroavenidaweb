@@ -1,0 +1,9 @@
+#contacto div{
+    height: calc(100vh - 185px);
+}
+
+#contacto h1,#contacto p{
+    color:#484731;
+    -webkit-text-stroke: #B4AE34;
+    font-weight: bold;
+}
