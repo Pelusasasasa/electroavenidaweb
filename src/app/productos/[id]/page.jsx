@@ -15,7 +15,7 @@ export default async function page({params}){
     const {_id,descripcion,marca,cod_fabrica,stock,precio_venta} = await getProduct(id);
 
   return (
-    <section className="flex border-l-2 border-gray-400 pl-4">
+    <section className="flex border-l-2 border-gray-400 pl-4 justify-around w-full">
         <div className=" flex flex-col">
             
             <div className="flex align-middle justify-center">
@@ -23,7 +23,7 @@ export default async function page({params}){
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
 
-                <img className="w-96" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
+                <img className="w-96 h-96 object-contain" src={`http://192.168.0.101:4000/api/productos/${_id}/image`} alt="" />
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 self-center cursor-pointer hover:scale-125">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
@@ -31,28 +31,28 @@ export default async function page({params}){
 
             </div>
             <div className="flex">
-                <img className="w-32" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
-                <img className="w-32" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
-                <img className="w-32" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
+                <img className="w-32 h-32 object-contain" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
+                <img className="w-32 h-32 object-contain" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
+                <img className="w-32 h-32 object-contain" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
             </div>
         </div>
 
         <main>
 
-            <div id="title">
-                <h3>{descripcion}</h3>
-                <div>
-                    <p>{marca}</p>
-                    <p>{_id}</p>
-                    <p>{cod_fabrica}</p>
+            <div id="title" className="flex flex-col w-full mt-10 border-b-2 border-gray-400 pb-5">
+                <h3 className="text-center text-2xl font-bold">{descripcion}</h3>
+                <div className="flex gap-10 mt-5">
+                    <p className="p-2 bg-slate-300">{marca}</p>
+                    <p className="p-2 bg-slate-300">{_id}</p>
+                    <p className="p-2 bg-slate-300">{cod_fabrica}</p>
                 </div>
             </div>
 
-            <div id="datos"></div>
+            <div id="datos" className="flex w-full mt-10 border-b-2 border-gray-400 pb-5"></div>
 
-            <div id="precio">
-                <p> Precio: ${precio_venta.toFixed(2)}</p>
-                <p>Stock: {stock.toFixed(2)}</p>
+            <div id="precio" className="flex flex-col w-full mt-10 gap-5">
+                <p className="text-xl"> Precio: ${precio_venta.toFixed(2)}</p>
+                <p className="text-xl">Stock: {stock.toFixed(2)}</p>
             </div>
 
         </main>
