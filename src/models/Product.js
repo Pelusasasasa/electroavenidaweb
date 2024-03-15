@@ -42,6 +42,15 @@ const Producto = new Schema({
         default:"",
         trim:true,
         set: ( valor ) => valor.toUpperCase()
+    },
+    oferta:{
+        type:Boolean,
+        default:false
+    },
+    precioOferta:{
+        type:Number,
+        default:0,
+        set: ( valor ) => valor.toFixed(2)
     }
 },{
     timestamps: true

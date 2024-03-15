@@ -2,7 +2,7 @@ import '@/app/contacto/style.css'
 
 export default function page(){
   return (
-    <div id="contacto" className="w-full">
+    <div id="contacto" className="w-full border-l-2 border-r-2 border-gray-500">
       <h1 className="text-center mt-2 text-2xl text-">Contacto</h1>
       <section className="flex gap-2 justify-around mt-10">
         <div className="border-r-2 border-gray-500 h-screen flex flex-col gap-32 pr-5">

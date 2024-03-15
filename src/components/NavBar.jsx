@@ -14,7 +14,7 @@ export const NavBar = () => {
             
             <nav className="flex justify-around gap-5">
                 <Link className="self-center" href='/productos'><p className="text-2xl cursor-pointer hover:text-yellow-200 ">Productos</p></Link>
-                <Link className="self-center" href='/ofertas'><p className="text-2xl cursor-pointer hover:text-yellow-200 self-center">Ofertas</p></Link>
+                <Link className="self-center" href='/productos/ofert'><p className="text-2xl cursor-pointer hover:text-yellow-200 self-center">Ofertas</p></Link>
                 <Link className="self-center" href='/contacto'><p className="text-2xl cursor-pointer hover:text-yellow-200 self-center">Contacto</p></Link>
             </nav>
         </header>

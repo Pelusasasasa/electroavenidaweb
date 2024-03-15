@@ -10,3 +10,8 @@
     color: #cec407;
     -webkit-text-stroke: .7px #B4AE34;
 }
+
+#precioOferta{
+    color: red !important;
+    font-size: 20px;
+}

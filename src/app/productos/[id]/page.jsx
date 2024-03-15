@@ -11,7 +11,6 @@ async function getProduct(id){
 export default async function page({params}){
     // const router = useRouter();
     const id = params.id;
-    console.log(await getProduct(id));
     const {_id,descripcion,marca,cod_fabrica,stock,precio_venta} = await getProduct(id);
 
   return (

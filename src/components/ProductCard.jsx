@@ -4,7 +4,7 @@ import '@/app/productos/style.css'
 import Link from 'next/link';
 
 export const ProductCard = ({_doc}) => {
-    const {_id,descripcion,marca,stock,precio_venta,unidad} = _doc;
+    const {_id,descripcion,marca,stock,precio_venta,unidad,oferta,precioOferta} = _doc;
   return (
         <Link href={'/productos/'+_id}>
             <div id='productCard' className='cursor-pointer flex flex-col border border-black rounded-sm'>
@@ -21,7 +21,11 @@ export const ProductCard = ({_doc}) => {
 
                 <div className='flex justify-between mt-auto'>
                     <p className='text-xl'>Stock: {stock}</p>
-                    <p className='text-xl'>${typeof precio_venta === "number" ? precio_venta.toFixed(2) : '0.00'}</p>
+                    <div>
+                        {oferta && <p id='precioOferta' className='texl-2xl'>{precioOferta?.toFixed(2)}</p>}
+                        <p className={`${oferta ? 'line-through' : 'text-xl'}` }>${typeof precio_venta === "number" ? precio_venta.toFixed(2) : '0.00'}</p>
+                        
+                    </div>
                 </div>
 
             </div>
