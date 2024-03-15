@@ -1,9 +1,10 @@
 'use client'
 
+import Link from "next/link";
 import { useState } from "react";
 
 export const Category = ({datos}) => {
-    const {nombre,subRubros} = JSON.parse(datos);
+    const {nombre,subRubros,codigo} = JSON.parse(datos);
 
     const [prueba, setPrueba] = useState(false)
 
@@ -29,7 +30,9 @@ export const Category = ({datos}) => {
         <ul className={!prueba ? 'hidden' : 'mt-3'}>
           {subRubros?.map( elem => {
             return (
-              <li className="text-sm hover:bg-gray-300 cursor-pointer my-2 p-2" key={elem}>{elem}</li> 
+              <Link key={elem} href={`/productos/category/${codigo}/${elem}`}>
+                <li className="text-sm hover:bg-gray-300 cursor-pointer my-2 p-2">{elem}</li> 
+              </Link>
             )
           })}
         </ul>

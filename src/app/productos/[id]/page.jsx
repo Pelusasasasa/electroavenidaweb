@@ -30,7 +30,7 @@ export default async function page({params}){
                 </svg>
 
             </div>
-            <div className="flex">
+            <div className="flex hidden">
                 <img className="w-32 h-32 object-contain" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
                 <img className="w-32 h-32 object-contain" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
                 <img className="w-32 h-32 object-contain" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />

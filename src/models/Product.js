@@ -33,6 +33,16 @@ const Producto = new Schema({
         trim:true,
         set: ( valor ) => valor.toUpperCase() 
     },
+    rubro:{
+        type:Number,
+        default: 0
+    },
+    subRubro:{
+        type:String,
+        default:"",
+        trim:true,
+        set: ( valor ) => valor.toUpperCase()
+    }
 },{
     timestamps: true
 });
