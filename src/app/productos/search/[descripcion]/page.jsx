@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/ProductCard";
 async function loadProductos(descripcion) {
     await conectDB();
     descripcion = descripcion.replace(/%20/g, " ");
+    descripcion = descripcion.replace(/%C3%B1/, "ñ");
     const productos = await Productos.find({descripcion:{$regex: descripcion, $options:'i'}});
     return productos;
 };

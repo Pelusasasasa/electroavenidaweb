@@ -5,7 +5,7 @@ import { ProductCard } from "@/components/ProductCard";
 async function loadProductos(category,subCategory) {
     await conectDB();
     subCategory = subCategory.replace("%20", " ");
-
+    subCategory = subCategory.replace(/%C3%91/, "Ñ");
     const res = await Productos.find({rubro:category});
     const productos = res.filter(producto => producto.subRubro === subCategory);
     return productos;
