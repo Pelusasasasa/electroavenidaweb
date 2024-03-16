@@ -15,6 +15,8 @@ export async function conectDB(){
 
     const db = await connect(URL);
     conn.isConnected = db.connections[0].readyState;
+    console.log("AAAAAAs")
+    console.log(db.connections[0])
 };
 
 connection.on('connected',() => {
