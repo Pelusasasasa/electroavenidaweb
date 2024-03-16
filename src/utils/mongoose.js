@@ -1,4 +1,7 @@
 import {connect,connection} from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+const URL = process.env.MONGODB_URI;
 
 const conn = {
     isConnected: false
@@ -10,7 +13,7 @@ export async function conectDB(){
         return;
     };
 
-    const db = await connect('mongodb://192.168.0.101:27017/electroAvenida');
+    const db = await connect(URL);
     conn.isConnected = db.connections[0].readyState;
 };
 
