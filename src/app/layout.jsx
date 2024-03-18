@@ -13,6 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/logo.jpg" />
       <body className={inter.className}>
         <NavBar/>
         <div className='flex mr-5 ml-5'>

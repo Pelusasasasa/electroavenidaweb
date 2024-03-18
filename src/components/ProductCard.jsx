@@ -5,18 +5,18 @@ import Link from 'next/link';
 
 const IMAGEN_URL = process.env.IMAGEN_URL;
 
-export const ProductCard = ({_doc}) => {
-    const {_id,descripcion,marca,stock,precio_venta,unidad,oferta,precioOferta} = _doc;
+export const ProductCard = ({producto}) => {
+    const {_id,descripcion,marca,stock,precio_venta,unidad,oferta,precioOferta} = producto;
   return (
         <Link href={'/productos/'+_id}>
-            <div id='productCard' className='cursor-pointer flex flex-col border border-black rounded-sm'>
+            <div id='productCard' className='cursor-pointer flex flex-col border border-black rounded-sm w-72'>
                 <div id='productImage' className='relative w-full h-1/2'>
                     <img className='absolute object-cover inset-0 w-full h-full' src={`${IMAGEN_URL}${_id}/image`} alt={_id} />
                     <span className='absolute bottom-2 right-2 bg-gray-400 rounded-lg p-1 text-sm'>{marca}</span>
                 </div>
                 <div>
                     <p className='text-center font-light'>{_id}</p>
-                    <h4 className='text-center font-bold text-2xl'>{descripcion}</h4>
+                    <h4 className='text-center font-bold text-2xl whitespace-normal'>{descripcion}</h4>
                 </div>
 
                 <p className='text-center mt-auto'>Venta Por {unidad === 'M' ? 'Metro' : 'Unidad'}</p>

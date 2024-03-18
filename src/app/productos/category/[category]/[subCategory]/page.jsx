@@ -21,7 +21,7 @@ export default async function page({params}) {
       <main className="grid grid-cols-4 gap-5 ml-3 p-2">
             {
                 productos.map(producto => {
-                    return <ProductCard key={producto._id} {...producto} />
+                    return <ProductCard key={producto._id} producto={producto} />
                 })    
             }
         </main>
