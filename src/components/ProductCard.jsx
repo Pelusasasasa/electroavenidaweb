@@ -11,7 +11,7 @@ export const ProductCard = ({producto}) => {
         <Link href={'/productos/'+_id}>
             <div id='productCard' className='cursor-pointer flex flex-col border border-black rounded-sm w-72'>
                 <div id='productImage' className='relative w-full h-1/2'>
-                    <img className='absolute object-cover inset-0 w-full h-full' src={`${IMAGEN_URL}${_id}/image`} alt={_id} />
+                    <img className='absolute object-cover inset-0 w-full h-full' src={`${IMAGEN_URL}${_id}`} alt={_id} />
                     <span className='absolute bottom-2 right-2 bg-gray-400 rounded-lg p-1 text-sm'>{marca}</span>
                 </div>
                 <div>
