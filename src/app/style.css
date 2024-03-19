@@ -2,9 +2,6 @@
     width: calc(100vw - 210px);
 }
 
-
-
-
 @keyframes scroll{
     0% {
         transform: translateX(0);
@@ -16,4 +13,11 @@
 
 .animate-scroll{
     animation: scroll 20s linear infinite;
+}
+
+
+@media (width < 458px){
+    #ofertas,#novedades,#destacados{
+        width: 100%;
+    }
 }
