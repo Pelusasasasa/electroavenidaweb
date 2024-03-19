@@ -17,7 +17,7 @@ export default async function page({params}){
 
   return (
     <>
-        <main className="grid grid-cols-4 gap-5 ml-3 p-2">
+        <main id="paginaProductos" className="grid place-items-center w-full grid-cols-4 gap-5 ml-3 p-2">
             {
                 productos.map(producto => {
                     return <ProductCard key={producto._id} producto={producto} />
