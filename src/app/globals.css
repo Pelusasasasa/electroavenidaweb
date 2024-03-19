@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (width < 1000px){
+    #hamb{
+        display: block;
+    }
+
+    #navegacion{
+        display: none;
+    }
+}
