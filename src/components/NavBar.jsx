@@ -4,6 +4,8 @@ import { InputBuscador } from "./InputBuscador"
 import { MenuBar } from "./MenuBar"
 import { useState } from "react"
 
+const IMAGEN_URL = process.env.IMAGEN_URL;
+
 export const NavBar = () => {
     const [menuHamb,setMenuHamb] = useState(false);
 
@@ -16,7 +18,7 @@ export const NavBar = () => {
     <header className="flex bg-yellow-200 pt-2 pb-4 justify-around border-b-2 border-gray-600">
             <Link href={'/'}>
                 <figure className="cursor-pointer">
-                    <img src="/logoSinFondo2.png" alt="" className="h-16" />
+                    <img src={IMAGEN_URL + 'EA.png'} alt="" className="h-16" />
                 </figure>
             </Link>
             

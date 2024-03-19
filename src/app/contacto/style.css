@@ -7,3 +7,18 @@
     -webkit-text-stroke: #B4AE34;
     font-weight: bold;
 }
+
+@media (width < 1400px){
+    #contacto-datos{
+        flex-direction: column;
+    }
+    
+    #contacto-datos div{
+        gap: 2rem;
+        height: min-content;
+        border: none;
+        border-bottom: .1rem solid black;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}

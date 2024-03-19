@@ -4,7 +4,7 @@ export default function page(){
   return (
     <div id="contacto" className="w-full border-l-2 border-r-2 border-gray-500">
       <h1 className="text-center mt-2 text-2xl text-">Contacto</h1>
-      <section className="flex gap-2 justify-center mt-10">
+      <section className="flex gap-2 justify-center mt-10" id='contacto-datos'>
         <div className="border-r-2 border-gray-500 h-screen flex flex-col gap-32 pr-5">
           <p className="text-2xl flex">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
