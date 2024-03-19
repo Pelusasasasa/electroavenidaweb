@@ -16,7 +16,7 @@
     font-size: 20px;
 }
 
-@media (width < 1450px){
+@media ((width < 1450px) and (width > 1300px)){
     #paginaProductos a > div,#paginaOfertas a > div{
         width: 250px;
     }
