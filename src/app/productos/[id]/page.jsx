@@ -1,6 +1,7 @@
-import { useRouter } from "next/navigation";
 import { conectDB } from "@/utils/mongoose";
 import Product from "@/models/Product";
+
+import '@/app/productos/[id]/style.css';
 
 const IMAGEN_URL = process.env.IMAGEN_URL;
 
@@ -11,12 +12,11 @@ async function getProduct(id){
 }
 
 export default async function page({params}){
-    // const router = useRouter();
     const id = params.id;
-    const {_id,descripcion,marca,cod_fabrica,stock,precio_venta} = await getProduct(id);
+    const {_id,descripcion,marca,cod_fabrica,stock,precio_venta,oferta,precioOferta} = await getProduct(id);
 
   return (
-    <section className="flex border-l-2 border-gray-400 pl-4 justify-around w-full">
+    <section id="product" className="flex border-l-2 border-gray-400 pl-4 justify-around w-full">
         <div className=" flex flex-col">
             
             <div className="flex align-middle justify-center">
@@ -42,7 +42,7 @@ export default async function page({params}){
 
             <div id="title" className="flex flex-col w-full mt-10 border-b-2 border-gray-400 pb-5">
                 <h3 className="text-center text-2xl font-bold">{descripcion}</h3>
-                <div className="flex gap-10 mt-5">
+                <div className="flex gap-10 mt-5 justify-center">
                     <p className="p-2 bg-slate-300">{marca}</p>
                     <p className="p-2 bg-slate-300">{_id}</p>
                     <p className="p-2 bg-slate-300">{cod_fabrica}</p>
@@ -52,7 +52,8 @@ export default async function page({params}){
             <div id="datos" className="flex w-full mt-10 border-b-2 border-gray-400 pb-5"></div>
 
             <div id="precio" className="flex flex-col w-full mt-10 gap-5">
-                <p className="text-xl"> Precio: ${precio_venta.toFixed(2)}</p>
+                {oferta && <p className="text-xl">Precio Oferta:${precioOferta.toFixed(2)}</p>}
+                <p className={oferta ? 'line-through' : 'text-xl'}> Precio: ${precio_venta.toFixed(2)}</p>
                 <p className="text-xl">Stock: {stock.toFixed(2)}</p>
             </div>
 

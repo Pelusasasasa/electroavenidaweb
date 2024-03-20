@@ -11,3 +11,10 @@
         display: none;
     }
 }
+
+
+@media (width < 510px){
+    aside{
+        display: none;
+    }
+}

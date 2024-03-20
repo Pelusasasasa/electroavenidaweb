@@ -1,0 +1,11 @@
+@media (width < 800px){
+    #product{
+        flex-direction: column;
+        padding-top: 1.5rem;
+    }
+    
+    
+    #product img{
+        width: 100%;
+    }
+}
