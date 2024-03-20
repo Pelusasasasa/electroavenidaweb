@@ -2,6 +2,7 @@ import { conectDB } from "@/utils/mongoose";
 import Product from "@/models/Product";
 
 import '@/app/productos/[id]/style.css';
+import comprobarurl from "@/utils/comprobarURLImage";
 
 const IMAGEN_URL = process.env.IMAGEN_URL;
 
@@ -15,6 +16,8 @@ export default async function page({params}){
     const id = params.id;
     const {_id,descripcion,marca,cod_fabrica,stock,precio_venta,oferta,precioOferta} = await getProduct(id);
 
+    const url = await comprobarurl(`${IMAGEN_URL}${_id}`,`${IMAGEN_URL}Generica`);
+
   return (
     <section id="product" className="flex border-l-2 border-gray-400 pl-4 justify-around w-full">
         <div className=" flex flex-col">
@@ -24,14 +27,14 @@ export default async function page({params}){
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
 
-                <img className="w-96 h-96 object-contain" src={`${IMAGEN_URL}${_id}`} alt="" />
+                <img className="w-96 h-96 object-contain" src={url} alt="" />
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 self-center cursor-pointer hover:scale-125">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
 
             </div>
-            <div className="flex hidden">
+            <div className="hidden">
                 <img className="w-32 h-32 object-contain" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
                 <img className="w-32 h-32 object-contain" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />
                 <img className="w-32 h-32 object-contain" src="http://192.168.0.101:4000/api/productos/127-033/image" alt="" />

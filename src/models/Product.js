@@ -51,7 +51,11 @@ const Producto = new Schema({
         type:Number,
         default:0,
         set: ( valor ) => valor.toFixed(2)
-    }
+    },
+    destacado:{
+        type:Boolean,
+        default:false
+    },
 },{
     timestamps: true
 });

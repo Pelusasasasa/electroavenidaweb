@@ -2,16 +2,20 @@
 import React from 'react';
 import '@/app/productos/style.css'
 import Link from 'next/link';
+import comprobarurl from '@/utils/comprobarURLImage';
 
 const IMAGEN_URL = process.env.IMAGEN_URL;
 
-export const ProductCard = ({producto}) => {
+export const ProductCard = async({producto}) => {
     const {_id,descripcion,marca,stock,precio_venta,unidad,oferta,precioOferta} = producto;
+
+    const url = await comprobarurl(`${IMAGEN_URL}${_id}`,`${IMAGEN_URL}Generica`);
+
   return (
         <Link href={'/productos/'+_id}>
             <div id='productCard' className='cursor-pointer flex flex-col border border-black rounded-sm w-72'>
                 <div id='productImage' className='relative w-full h-1/2'>
-                    <img className='absolute object-cover inset-0 w-full h-full' src={`${IMAGEN_URL}${_id}`} alt={_id} />
+                    <img className='absolute object-cover inset-0 w-full h-full' src={url} alt={_id} />
                     <span className='absolute bottom-2 right-2 bg-gray-400 rounded-lg p-1 text-sm'>{marca}</span>
                 </div>
                 <div>

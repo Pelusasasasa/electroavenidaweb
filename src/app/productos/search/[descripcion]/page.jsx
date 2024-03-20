@@ -8,6 +8,7 @@ async function loadProductos(descripcion) {
     descripcion = descripcion.replace(/%20/g, " ");
     descripcion = descripcion.replace(/%C3%B1/, "ñ");
     const productos = await Productos.find({descripcion:{$regex: descripcion, $options:'i'}});
+    productos.sort((a,b) => a.descripcion.localeCompare(b.descripcion));
     return productos;
 };
 
