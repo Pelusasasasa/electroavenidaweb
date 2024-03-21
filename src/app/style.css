@@ -1,4 +1,4 @@
-#ofertas,#novedades,#destacados{
+#ofertas,#destacados{
     width: calc(100vw - 210px);
 }
 
@@ -17,7 +17,7 @@
 
 
 @media (width < 458px){
-    #ofertas,#novedades,#destacados{
+    #ofertas,#destacados{
         width: 100%;
     }
 }

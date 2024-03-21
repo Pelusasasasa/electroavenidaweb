@@ -28,8 +28,8 @@ export default async function Home() {
   const ofertas = await getOfertas();
   return (
 
-    <div className="flex flex-col border-l-2 border-gray-400">
-    <section id="novedades" className="bg-gray-300 h-56"></section>
+    <div className="flex w-full flex-col border-l-2 border-gray-400">
+    <section id="novedades" className="bg-gray-300 h-56 w-auto"></section>
       <div className="overflow-hidden w-full">
         <h2 className="text-2xl ml-4 mt-4">Productos en Destacados</h2>
         <div className="animate-scroll flex whitespace-nowrap">
