@@ -13,6 +13,7 @@ export function InputBuscador(){
 
   function handlekey(e){
     if(e.key === 'Enter'){
+      e.target.blur();
       router.push(`/productos/search/${prueba}`)
     }
   }
