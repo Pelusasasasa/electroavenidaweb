@@ -3,6 +3,7 @@ import Product from "@/models/Product";
 
 import '@/app/productos/[id]/style.css';
 import comprobarurl from "@/utils/comprobarURLImage";
+import Busqueda from "@/models/Busqueda";
 
 const IMAGEN_URL = process.env.IMAGEN_URL;
 
@@ -10,11 +11,18 @@ async function getProduct(id){
     await conectDB();
     const product = await Product.findOne({_id:id});
     return product;
-}
+};
+
+async function postText(texto){
+    await conectDB();
+    const busqueda = new Busqueda({texto:texto});
+    await busqueda.save();
+};
 
 export default async function page({params}){
     const id = params.id;
     const {_id,descripcion,marca,cod_fabrica,stock,precio_venta,oferta,precioOferta} = await getProduct(id);
+    await postText(descripcion)
 
     const url = await comprobarurl(`${IMAGEN_URL}${_id}`,`${IMAGEN_URL}Generica`);
 
