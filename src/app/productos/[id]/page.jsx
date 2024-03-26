@@ -10,6 +10,7 @@ const IMAGEN_URL = process.env.IMAGEN_URL;
 async function getProduct(id){
     await conectDB();
     const product = await Product.findOne({_id:id});
+    console.log(product)
     return product;
 };
 
@@ -21,8 +22,9 @@ async function postText(texto){
 
 export default async function page({params}){
     const id = params.id;
-    const {_id,descripcion,marca,cod_fabrica,stock,precio_venta,oferta,precioOferta} = await getProduct(id);
-    await postText(descripcion)
+    const {_id,descripcion,marca,cod_fabrica,stock,precio_venta,oferta,precioOferta,datos} = await getProduct(id);
+    console.log(datos)
+    // await postText(descripcion)
 
     const url = await comprobarurl(`${IMAGEN_URL}${_id}`,`${IMAGEN_URL}Generica`);
 
@@ -60,7 +62,12 @@ export default async function page({params}){
                 </div>
             </div>
 
-            <div id="datos" className="flex w-full mt-10 border-b-2 border-gray-400 pb-5"></div>
+            <div id="datos" className="flex flex-col w-full mt-10 border-b-2 border-gray-400 pb-5">
+                <h3 className="text-2xl font-bold">Datos:</h3>
+                {datos?.map(dato => (
+                    <p key={dato} className="text-2xl">{dato}</p>
+                ))}
+            </div>
 
             <div id="precio" className="flex flex-col w-full mt-10 gap-5">
                 {oferta && <p className="text-xl">Precio Oferta:${precioOferta.toFixed(2)}</p>}
