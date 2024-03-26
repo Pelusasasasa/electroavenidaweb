@@ -24,7 +24,7 @@ export default async function page({params}){
     const id = params.id;
     const {_id,descripcion,marca,cod_fabrica,stock,precio_venta,oferta,precioOferta,datos} = await getProduct(id);
     console.log(datos)
-    // await postText(descripcion)
+    await postText(descripcion)
 
     const url = await comprobarurl(`${IMAGEN_URL}${_id}`,`${IMAGEN_URL}Generica`);
 
