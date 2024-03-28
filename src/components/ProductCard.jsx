@@ -3,6 +3,7 @@ import React from 'react';
 import '@/app/productos/style.css'
 import Link from 'next/link';
 import comprobarurl from '@/utils/comprobarURLImage';
+import Image from 'next/image';
 
 const IMAGEN_URL = process.env.IMAGEN_URL;
 
@@ -15,7 +16,7 @@ export const ProductCard = async({producto}) => {
         <Link href={'/productos/'+_id}>
             <div id='productCard' className='cursor-pointer flex flex-col border border-black rounded-sm w-72'>
                 <div id='productImage' className='relative w-full h-1/2'>
-                    <img className='absolute object-cover inset-0 w-full h-full' src={url} alt={_id} />
+                    <Image className='absolute object-cover inset-0 w-full h-full' width={500} height={100} src={url} alt={_id} />
                     <span className='absolute bottom-2 right-2 bg-gray-400 rounded-lg p-1 text-sm'>{marca}</span>
                 </div>
                 <div>

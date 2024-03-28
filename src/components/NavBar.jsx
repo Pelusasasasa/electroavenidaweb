@@ -1,9 +1,10 @@
 'use client'
+
 import Link from "next/link"
 import { InputBuscador } from "./InputBuscador"
 import { MenuBar } from "./MenuBar"
 import { useState } from "react"
-
+import Image from "next/image"
 const IMAGEN_URL = process.env.IMAGEN_URL;
 
 export const NavBar = () => {
@@ -13,12 +14,12 @@ export const NavBar = () => {
         setMenuHamb(!menuHamb);
     };
 
-
   return (
+    
     <header className="flex bg-yellow-200 pt-2 pb-4 justify-around border-b-2 border-gray-600">
             <Link href={'/'}>
                 <figure className="cursor-pointer">
-                    <img src={IMAGEN_URL + 'EA.png'} alt="" className="h-16" />
+                    <Image src={IMAGEN_URL + 'EA.png'} className="h-16" alt="Logo" width={210} height={100}/>
                 </figure>
             </Link>
             
