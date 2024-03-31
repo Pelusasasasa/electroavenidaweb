@@ -30,7 +30,7 @@ export const ProductCard = async({producto}) => {
                     <p className='text-xl'>Stock: {stock}</p>
                     <div>
                         {oferta && <p id='precioOferta' className='texl-2xl'>{precioOferta?.toFixed(2)}</p>}
-                        <p className={`${oferta ? 'line-through' : 'text-xl'}` }>${typeof precio_venta === "number" ? precio_venta.toFixed(2) : '0.00'}</p>
+                        <p className={`${oferta ? 'line-through' : 'text-xl'}` }>${typeof precio_venta === "number" ? Math.round(precio_venta + precio_venta * 6 / 100).toFixed(2) : '0.00'}</p>
                         
                     </div>
                 </div>

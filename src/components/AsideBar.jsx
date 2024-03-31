@@ -4,7 +4,7 @@ import { Category } from './Category';
 
 export default async function AsideBar(){
 
-    const categorias = await loadCategorias()
+    const categorias = await loadCategorias();
 
   return (
     <aside className="w-fit bg-yellow-200 pl-2 pr-2">

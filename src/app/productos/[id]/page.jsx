@@ -68,7 +68,7 @@ export default async function page({params}){
 
             <div id="precio" className="flex flex-col w-full mt-10 gap-5">
                 {oferta && <p className="text-xl">Precio Oferta:${precioOferta.toFixed(2)}</p>}
-                <p className={oferta ? 'line-through' : 'text-xl'}> Precio: ${precio_venta.toFixed(2)}</p>
+                <p className={oferta ? 'line-through' : 'text-xl'}> Precio: ${Math.round(precio_venta + precio_venta * 6 / 100).toFixed(2)}</p>
                 <p className="text-xl">Stock: {stock.toFixed(2)}</p>
             </div>
 
