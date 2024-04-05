@@ -1,12 +1,6 @@
-const { Schema, models, model } = require("mongoose");
+import { obtenerFechaHoraBuenosAires } from "@/utils/funcion";
 
-function obtenerFechaHoraBuenosAires() {
-    const now = new Date();
-    const nuevaFecha = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString();
-    console.log(nuevaFecha)
-    return nuevaFecha;
-  }
-  
+const { Schema, models, model } = require("mongoose");
 
 const Busqueda = new Schema({
     texto:{
