@@ -43,7 +43,7 @@ export default async function Home() {
     <div className="flex w-full flex-col border-l-2 border-gray-400">
     <section id="novedades" className="bg-gray-300 h-auto w-auto">
       {banners.map(banner => (
-        <Link key={banner._id} href={banner.direccion}>
+        <Link key={banner._id} href={`/productos/search/${banner.direccion}`}>
           <Image 
           className="object-cover cursor-pointer"
           src={banner.url}
