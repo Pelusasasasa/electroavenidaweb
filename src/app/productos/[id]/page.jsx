@@ -5,6 +5,7 @@ import '@/app/productos/[id]/style.css';
 import comprobarurl from "@/utils/comprobarURLImage";
 import Busqueda from "@/models/Busqueda";
 import Image from "next/image";
+import { obtenerFechaHoraBuenosAires } from "@/utils/funcion";
 
 const IMAGEN_URL = process.env.IMAGEN_URL;
 
@@ -16,6 +17,10 @@ async function getProduct(id){
 
 async function postText(texto){
     await conectDB();
+    const obj = {
+        texto:texto,
+        createdAt: obtenerFechaHoraBuenosAires()
+    }
     const busqueda = new Busqueda({texto:texto});
     await busqueda.save();
 };

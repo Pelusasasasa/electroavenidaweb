@@ -7,6 +7,7 @@ import { conectDB } from "@/utils/mongoose";
 import '@/app/style.css';
 import { Carrucel } from "@/components/Carrucel";
 import Banner from "@/models/Banner";
+import Busqueda from "@/models/Busqueda";
 
 
 async function getOfertas(){
@@ -17,6 +18,36 @@ async function getOfertas(){
   ]);
   return productos;
 };
+
+async function getMasBuscados(){
+  await conectDB();
+  const busquedas = await Busqueda.find();
+
+  const frecuencia = busquedas.reduce((acc,el) => {
+    const texto = el.texto;
+    acc[texto] = (acc[texto] || 0) + 1;
+
+    return acc;
+  },{});
+
+  const arrayOrdenado = busquedas.sort((a,b) => frecuencia[b.texto] - frecuencia[a.texto]);
+
+  const retorno = arrayOrdenado.filter((obj, index, self) => 
+    index === self.findIndex((t) => (
+      t.texto === obj.texto
+    ))
+  );
+
+  const arreglo = [];
+
+  for (let i = 0; i < 15; i++) {
+    const producto = await Product.findOne({descripcion: retorno[i].texto});
+
+    producto && arreglo.push(producto);
+  }
+
+  return arreglo;
+}
 
 async function getDestacados(){
   await conectDB();
@@ -34,9 +65,11 @@ async function getBanners(){
 };
 
 export default async function Home() {
+  const banners = await getBanners();
+
   const destacados = await getDestacados();
   const ofertas = await getOfertas();
-  const banners = await getBanners();
+  const masBuscados = await getMasBuscados();
   
   return (
 
@@ -55,9 +88,15 @@ export default async function Home() {
       ))}
     </section>
       <div className="overflow-hidden w-full">
-        <h2 className="text-2xl ml-4 mt-4">Productos en Destacados</h2>
+        <h2 className="text-2xl ml-4 mt-4">Productos Destacados</h2>
         <div className="animate-scroll flex whitespace-nowrap">
           <Carrucel productos={destacados} id={'destacados'}/>
+        </div>
+      </div>
+      <div className="overflow-hidden w-full">
+        <h2 className="text-2xl ml-4 mt-4">Productos Mas buscados</h2>
+        <div className="animate-scroll flex whitespace-nowrap">
+          <Carrucel productos={masBuscados} id={'masBuscados'}/>
         </div>
       </div>
       <div className="overflow-hidden w-full">
