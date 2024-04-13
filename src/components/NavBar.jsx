@@ -5,6 +5,7 @@ import { InputBuscador } from "./InputBuscador"
 import { MenuBar } from "./MenuBar"
 import { useState } from "react"
 import Image from "next/image"
+import { User } from "./User"
 const IMAGEN_URL = process.env.IMAGEN_URL;
 
 export const NavBar = () => {
@@ -26,10 +27,12 @@ export const NavBar = () => {
             <InputBuscador />
             
             <nav id="navegacion" className="flex justify-around gap-5">
-                <Link className="self-center" href='/productos'><p className="text-2xl cursor-pointer hover:text-gray-600 ">Productos</p></Link>
-                <Link className="self-center" href='/productos/ofert'><p className="text-2xl cursor-pointer hover:text-gray-600 self-center">Ofertas</p></Link>
-                <Link className="self-center" href='/contacto'><p className="text-2xl cursor-pointer hover:text-gray-600 self-center">Contacto</p></Link>
+                <Link className="self-center" href='/productos'><p className="text-lg cursor-pointer hover:text-gray-600 ">Productos</p></Link>
+                <Link className="self-center" href='/productos/ofert'><p className="text-lg cursor-pointer hover:text-gray-600 self-center">Ofertas</p></Link>
+                <Link className="self-center" href='/contacto'><p className="text-lg cursor-pointer hover:text-gray-600 self-center">Contacto</p></Link>
             </nav>
+
+            {/* <User/> */}
 
             <div id="hamb" className="hidden" onClick={handleMenuHamb}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-16 h-16">

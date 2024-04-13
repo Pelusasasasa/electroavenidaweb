@@ -59,6 +59,10 @@ const Producto = new Schema({
     datos:{
         type:Array,
         default:[]
+    },
+    web:{
+        type:Boolean,
+        default:true
     }
 },{
     timestamps: true

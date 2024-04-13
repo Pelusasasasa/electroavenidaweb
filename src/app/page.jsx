@@ -60,8 +60,8 @@ async function getDestacados(){
 
 async function getBanners(){
   await conectDB();
-  const banners = await Banner.find();
-  return banners;
+  const banners = await Banner.findOne();
+  return [banners];
 };
 
 export default async function Home() {
