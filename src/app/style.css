@@ -2,6 +2,46 @@
     width: calc(100vw - 210px);
 }
 
+#novedades{
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    margin: 10px auto 0;
+    overflow: hidden;
+}
+
+#banner{
+    display: flex;
+    padding: 0;
+    height: auto;
+    max-height: 320px;
+    
+
+    /* animation: slider 16s infinite ease-in-out; */
+}
+
+#banner li{
+    width: 100%;
+}
+
+#banner li img{
+    width: 100%;
+}
+
+@keyframes slider{
+    0%{margin-left: 0%;}
+    20%{margin-left: 0%;}
+
+    25%{margin-left: -100%;}
+    45%{margin-left: -100%;}
+
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+
+    75%{margin-left: -300%;}
+    95%{margin-left: -300%;}
+}
+
 @keyframes scroll{
     0% {
         transform: translateX(0);

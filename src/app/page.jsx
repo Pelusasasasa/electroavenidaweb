@@ -60,8 +60,8 @@ async function getDestacados(){
 
 async function getBanners(){
   await conectDB();
-  const banners = await Banner.findOne();
-  return [banners];
+  const banners = await Banner.find({mostrar:true});
+  return banners;
 };
 
 export default async function Home() {
@@ -71,22 +71,27 @@ export default async function Home() {
   const ofertas = await getOfertas();
   const masBuscados = await getMasBuscados();
   
+  let width = banners.length * 100;
   return (
 
     <div className="flex w-full flex-col border-l-2 border-gray-400">
-    <section id="novedades" className="bg-gray-300 h-auto w-auto">
-      {banners.map(banner => (
-        <Link key={banner._id} href={`/productos/search/${banner.direccion}`}>
-          <Image 
-          className="object-cover cursor-pointer"
-          src={banner.url}
-          alt = {banner.titulo}
-          width={1920}
-          height={1080}
-        />
-        </Link>
-      ))}
-    </section>
+      <section id="novedades">
+        <ul id="banner" className={"w-[" + width + "%]"}>
+          {banners.map(banner => (
+          <li className="w-full" key={banner._id}>
+              <Link key={banner._id} href={`/productos/search/${banner.direccion}`}>
+                <Image
+                className="object-cover cursor-pointer"
+                src={banner.url}
+                alt = {banner.titulo}
+                width={1920}
+                height={1080}
+              />
+              </Link>
+          </li>
+        ))}
+        </ul>
+      </section>
       <div className="overflow-hidden w-full">
         <h2 className="text-2xl ml-4 mt-4">Productos Destacados</h2>
         <div className="animate-scroll flex whitespace-nowrap">
