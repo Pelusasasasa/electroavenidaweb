@@ -1,7 +1,9 @@
 'use client'
 
+import { set } from "mongoose";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export const Category = ({datos}) => {
     const {nombre,subRubros,codigo} = JSON.parse(datos);
@@ -11,6 +13,15 @@ export const Category = ({datos}) => {
     function handleSubRubros(){
       setPrueba(!prueba)
     };
+
+    const pathName = usePathname();
+    const searchParams = useSearchParams();
+    
+    useEffect(() => {
+
+      setPrueba(false);
+    
+    },[pathName,searchParams])
 
     const cssConBg = 'flex p-2 bg-green-300 cursor-pointer'
     const cssSinBg = 'flex p-2 cursor-pointer hover:bg-gray-300'
