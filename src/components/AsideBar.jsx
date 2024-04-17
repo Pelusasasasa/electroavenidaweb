@@ -1,5 +1,5 @@
 import loadCategorias from '@/helpres/getCategories';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Category } from './Category';
 
 export default async function AsideBar(){
@@ -12,7 +12,9 @@ export default async function AsideBar(){
            <ul className="list-none gap-5 flex flex-col mt-5 justify-around">
             {
             categorias.map( category => (
-                <Category key={category.codigo} datos={JSON.stringify(category)}/>
+                <Suspense key={category._id}>
+                  <Category datos={JSON.stringify(category)}/>
+                </Suspense>
             ))
             }
         </ul>
