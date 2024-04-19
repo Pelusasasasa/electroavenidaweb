@@ -11,6 +11,7 @@
 }
 
 #banner{
+    width: 200%;
     display: flex;
     padding: 0;
     height: auto;

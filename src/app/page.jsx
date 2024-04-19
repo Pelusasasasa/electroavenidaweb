@@ -70,14 +70,12 @@ export default async function Home() {
   const destacados = await getDestacados();
   const ofertas = await getOfertas();
   const masBuscados = await getMasBuscados();
-  
-  let width = `w-\[${banners.length * 100}\%\]`;
 
   return (
 
     <div className="flex w-full flex-col border-l-2 border-gray-400">
       <section id="novedades">
-        <ul id="banner" className={width}>
+        <ul id="banner">
           {banners.map(banner => (
           <li className="w-full" key={banner._id}>
               <Link key={banner._id} href={`/productos/search/${banner.direccion}`}>
