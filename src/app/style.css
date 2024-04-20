@@ -11,14 +11,14 @@
 }
 
 #banner{
-    width: 200%;
+    width: 300%;
     display: flex;
     padding: 0;
     height: auto;
     max-height: 320px;
     
 
-    animation: slider 14s infinite ease-in-out;
+    animation: slider 20s infinite ease-in-out;
 }
 
 #banner li{
@@ -30,13 +30,14 @@
 }
 
 @keyframes slider{
-    20%{margin-left: 0%;}
+    15%{margin-left: 0%;}
+    20%{margin-left: -100%;}
     
     50%{margin-left: -100%;}
-    70% {
-        margin-left: -100%;
-    }
-    100%{margin-left: 0%;}
+    55%{margin-left: -200%;}
+
+    85%{margin-left: -200%;}
+
 }
 
 @keyframes scroll{

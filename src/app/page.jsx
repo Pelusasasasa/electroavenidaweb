@@ -64,6 +64,7 @@ async function getBanners(){
   return banners;
 };
 
+
 export default async function Home() {
   const banners = await getBanners();
 
