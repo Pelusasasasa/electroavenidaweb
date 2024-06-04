@@ -1,0 +1,45 @@
+#login{
+    background-image: url('https://res.cloudinary.com/dyo36foif/image/upload/v1717074118/EA/Login.jpg');
+    background-repeat: no-repeat;
+    height: calc(100vh - 90px);
+}
+
+#login main{
+    width: 512px;
+    height: 702px;
+}
+
+
+#login main div:first-child{
+    background-color: #ffd400;
+}
+
+#login main:first-child svg{
+    border: 1rem solid #ffd400;
+    width: 12rem;
+}
+
+
+#login input:not([type="checkbox"]){
+    width: 360px;
+    height: 58px;
+    border: .3rem solid #ffd400;
+}
+
+#login input{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#login button{
+    width: fit-content;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#login button:hover{
+    border: .2rem solid #ffd400;
+}
+
+#login label{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
