@@ -36,6 +36,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+aside{
+    display: none;
+}
+
 #login button:hover{
     border: .2rem solid #ffd400;
 }

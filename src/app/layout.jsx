@@ -1,10 +1,13 @@
 import { NavBar } from '@/components/NavBar'
-import './globals.css'
-import { Inter } from 'next/font/google'
 import AsideBar from '@/components/AsideBar'
+
+import { Inter } from 'next/font/google'
 import { Aviso } from '@/components/Aviso';
+
 import Noticia from "@/models/Noticia";
 import { conectDB } from "@/utils/mongoose"
+
+import './globals.css'
 
 const IMAGEN_URL = process.env.IMAGEN_URL;
 const inter = Inter({ subsets: ['latin'] })
@@ -25,7 +28,9 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <link rel="icon" href={IMAGEN_URL + '/Logo'} />
       <body className={inter.className}>
-        <Aviso aviso={aviso.texto}/>
+        {
+          aviso && <Aviso aviso={aviso.texto}/>
+        }
         <NavBar/>
           <div className='flex'>
             <AsideBar/>
