@@ -47,3 +47,9 @@
 //     </form>
 //   )
 // }
+
+export const page = () => {
+  return (
+    <div>Login</div>
+  )
+}
