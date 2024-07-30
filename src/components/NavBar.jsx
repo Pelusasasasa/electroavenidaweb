@@ -28,6 +28,7 @@ export const NavBar = () => {
             
             <nav id="navegacion" className="flex justify-around gap-5">
                 <Link className="self-center" href='/productos'><p className="text-lg cursor-pointer hover:text-gray-600 ">Productos</p></Link>
+                <Link className="self-center" href='/marcas'><p className="text-lg cursor-pointer hover:text-gray-600 ">Marcas</p></Link>
                 <Link className="self-center" href='/productos/ofert'><p className="text-lg cursor-pointer hover:text-gray-600 self-center">Ofertas</p></Link>
                 <Link className="self-center" href='/contacto'><p className="text-lg cursor-pointer hover:text-gray-600 self-center">Contacto</p></Link>
             </nav>
