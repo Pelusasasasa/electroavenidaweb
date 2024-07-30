@@ -1,0 +1,24 @@
+.masInfo{
+    opacity: 0;
+}
+
+.masInfo:hover{
+    opacity: 1;
+}
+
+
+@media (width < 1200px){
+    #tarjeta-marca{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (width < 800px){
+    #tarjeta-marca{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (width < 550px){
+    #tarjeta-marca{
+        grid-template-columns: 1fr;
+    }
+}
